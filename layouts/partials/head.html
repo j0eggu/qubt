@@ -28,7 +28,7 @@
   {{ $assets.Add "css" (slice $customCSS) }}
 {{ end }}
 {{ $bundleCSS := $assets.Get "css" | resources.Concat "css/main.bundle.css" | resources.Minify | resources.Fingerprint "sha512" }}
-<link type="text/css" rel="stylesheet" href="{{ $bundleCSS.RelPermalink }}" integrity="{{ $bundleCSS.Data.Integrity }}" />
+<link type="text/css" rel="stylesheet" href="{{ $bundleCSS.RelPermalink }}" integrity="" />
 
 {{/* JS bundle */}}
 {{ $mainJS := resources.Get "js/main.js" }}
@@ -40,7 +40,7 @@
   {{ $assets.Add "js" (slice $customJS) }}
 {{ end }}
 {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
-<script defer src="{{ $bundleJS.RelPermalink }}" integrity="{{ $bundleJS.Data.Integrity }}"></script>
+<script defer src="{{ $bundleJS.RelPermalink }}" integrity=""></script>
 
 {{/* Favicon */}}
 {{ $icon := resources.GetMatch "icon.*" }}
