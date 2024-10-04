@@ -39,7 +39,7 @@
 {{ if $customJS }}
   {{ $assets.Add "js" (slice $customJS) }}
 {{ end }}
-{{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Fingerprint "sha512" }}
 <script defer src="{{ $bundleJS.RelPermalink }}" integrity=""></script>
 
 {{/* Favicon */}}
